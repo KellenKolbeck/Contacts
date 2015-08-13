@@ -48,4 +48,40 @@ describe(Contacts) do
       expect(test_name.id()).to(eq(1))
     end
   end
+
+  describe('.all') do
+    it('empty before anything is saved') do
+      expect(Contacts.all()).to(eq([]))
+    end
+  end
+
+  describe('#save') do
+    it('stores the contacts in an array') do
+      test_name = Contacts.new({:full_name => "ricky bobby", :job => "race car driver", :company => "Wonderbread racing"})
+      test_name.save()
+      expect(Contacts.all()).to(eq([test_name]))
+    end
+  end
+
+  describe('.clear') do
+    it('clears the array') do
+      test_name = Contacts.new({:full_name => "ricky bobby", :job => "race car driver", :company => "Wonderbread racing"})
+      test_name.save()
+      Contacts.clear()
+      expect(Contacts.all()).to(eq([]))
+    end
+  end
+
+  describe('.find') do
+    it('finds a contact using the id') do
+      test_name = Contacts.new({:full_name => "ricky bobby", :job => "race car driver", :company => "Wonderbread racing"})
+      test_name.save()
+      test_name_1 = Contacts.new({:full_name => "cal naughton", :job => "race car driver", :company => "Old Spice racing"})
+      test_name_1.save()
+      expect(Contacts.find(test_name.id)).to(eq(test_name))
+    end
+  end
+
+
+
 end

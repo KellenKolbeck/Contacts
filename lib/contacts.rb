@@ -15,4 +15,26 @@ class Contacts
     @id = @@all_contacts.length() + 1
   end
 
+  def save
+    @@all_contacts << self
+  end
+
+  define_singleton_method(:all) do
+    @@all_contacts
+  end
+
+  define_singleton_method(:clear) do
+    @@all_contacts = []
+  end
+
+  define_singleton_method(:find) do |identification|
+    found_contact = nil
+    @@all_contacts.each do |contact|
+      if contact.id == identification
+        found_contact = contact
+      end
+    end
+    found_contact
+  end
+
 end
