@@ -41,4 +41,11 @@ describe(Contacts) do
       expect(test_name.company()).to(eq("Wonderbread Racing"))
     end
   end
+
+  describe('#id') do
+    it("returns a contacts id") do
+      test_name = Contacts.new({:full_name => "ricky bobby", :job => "race car driver", :company => "Wonderbread racing"})
+      expect(test_name.id()).to(eq(1))
+    end
+  end
 end
