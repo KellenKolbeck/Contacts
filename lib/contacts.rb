@@ -20,12 +20,17 @@ class Contacts
 
   end
 
+  def styled_name
+    styled_name = "#{@last_name}, #{@first_name}"
+    styled_name
+  end
+
   def save
     @@all_contacts << self
   end
 
   define_singleton_method(:all) do
-    @@all_contacts
+    @@all_contacts.sort!{|a,b| a.last_name <=> b.last_name}
   end
 
   define_singleton_method(:clear) do
@@ -42,9 +47,9 @@ class Contacts
     found_contact
   end
 
-  define_singleton_method(:sorted) do
-    @@all_contacts.sort!{|a,b| a.last_name <=> b.last_name}
-  end
+  # define_singleton_method(:sorted) do
+  #   @@all_contacts.sort!{|a,b| a.last_name <=> b.last_name}
+  # end
 
   def add_phone(number)
     @phone << number
@@ -61,6 +66,5 @@ class Contacts
   def add_address(address_name)
     @address << address_name
   end
-
 
 end

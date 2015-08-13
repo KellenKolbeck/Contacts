@@ -87,18 +87,18 @@ describe(Contacts) do
     end
   end
 
-  describe('.sorted') do
-    it('sorts the list of contacts by last name') do
-      test_name = Contacts.new({:full_name => "ricky bobby", :job => "race car driver", :company => "Wonderbread racing"})
-      test_name.save()
-      test_name_1 = Contacts.new({:full_name => "cal naughton", :job => "race car driver", :company => "Old Spice racing"})
-      test_name_1.save()
-      test_name_2 = Contacts.new({:full_name => "sacha cohen", :job => "race car driver", :company => "Perrier racing"})
-      test_name_2.save()
-      Contacts.sorted
-      expect(Contacts.all).to(eq([test_name, test_name_2, test_name_1]))
-    end
-  end
+  # describe('.sorted') do
+  #   it('sorts the list of contacts by last name') do
+  #     test_name = Contacts.new({:full_name => "ricky bobby", :job => "race car driver", :company => "Wonderbread racing"})
+  #     test_name.save()
+  #     test_name_1 = Contacts.new({:full_name => "cal naughton", :job => "race car driver", :company => "Old Spice racing"})
+  #     test_name_1.save()
+  #     test_name_2 = Contacts.new({:full_name => "sacha cohen", :job => "race car driver", :company => "Perrier racing"})
+  #     test_name_2.save()
+  #     Contacts.sorted
+  #     expect(Contacts.all).to(eq([test_name, test_name_2, test_name_1]))
+  #   end
+  # end
 
   describe('#add_phone') do
     it ("adds a phone number to a contact") do
