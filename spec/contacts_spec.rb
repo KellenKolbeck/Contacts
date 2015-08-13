@@ -100,4 +100,41 @@ describe(Contacts) do
     end
   end
 
+  describe('#add_phone') do
+    it ("adds a phone number to a contact") do
+      test_name = Contacts.new({:full_name => "ricky bobby", :job => "race car driver", :company => "Wonderbread racing"})
+      test_number = Phones.new({:area_code => "605", :number => "2311231", :type => "home"})
+      test_name.add_phone(test_number)
+      expect(test_name.phone).to(eq([test_number]))
+    end
+  end
+
+  describe('#add_email') do
+    it ("adds email to a contact") do
+      test_name = Contacts.new({:full_name => "ricky bobby", :job => "race car driver", :company => "Wonderbread racing"})
+      test_email = Emails.new({:email => "AJHAupt7gmail.com"})
+      test_name.add_email(test_email)
+      expect(test_name.email).to(eq([test_email]))
+    end
+  end
+
+  describe('#add_soc_media') do
+    it ("adds a social media profile to a contact") do
+      test_name = Contacts.new({:full_name => "ricky bobby", :job => "race car driver", :company => "Wonderbread racing"})
+      test_soc_media = SocialMedias.new({:facebook => "andrew.haupt.7", :linked_in => "andrewhaupt2015"})
+      test_name.add_soc_media(test_soc_media)
+      expect(test_name.soc_media).to(eq([test_soc_media]))
+    end
+  end
+
+  describe('#add_address') do
+    it ("adds an address to a contact") do
+      test_name = Contacts.new({:full_name => "ricky bobby", :job => "race car driver", :company => "Wonderbread racing"})
+      test_address = Addresses.new({:street => "8324 SE rhine St.", :city => "Portland", :state => "OR", :zip => "97266", :type => "Home"})
+      test_name.add_address(test_address)
+      expect(test_name.address).to(eq([test_address]))
+    end
+  end
+
+
 end
