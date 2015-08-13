@@ -23,7 +23,7 @@ describe(Addresses) do
 
   describe('#state') do
     it("shows the contact's state") do
-      test_address = Addresses.new({:street => "8324 SE rhine St.", :city => "Portland", :state => "oR", :zip => "97266", :type => "Home"})
+      test_address = Addresses.new({:street => "8324 SE rhine St.", :city => "Portland", :state => "Or", :zip => "97266", :type => "Home"})
       expect(test_address.state()).to(eq("OR"))
     end
   end
@@ -62,6 +62,14 @@ describe(Addresses) do
       test_address.save
       Addresses.clear
       expect(Addresses.all).to(eq([]))
+    end
+  end
+
+  describe('#city_state_zip') do
+    it("displays the city, state, zip of address") do
+      test_address = Addresses.new({:street => "8324 SE rhine St.", :city => "portland", :state => "OR", :zip => "97266", :type => "Home"})
+      test_address.save
+      expect(test_address.city_state_zip()).to(eq("Portland, OR 97266"))
     end
   end
 
