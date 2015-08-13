@@ -1,0 +1,13 @@
+<h1 class="index-title">Contacts</h1>
+
+<% if @full_name == [] %>
+  <h3>Your contact list is empty!</h3>
+<% else %>
+  <div class="list-group">
+    <% Contacts.each do |contact| %>
+     <a href="/contact/:id" class="list-group-item"><%= contact.full_name %></a>
+    <% end %>
+<% end %>
+  </div>
+
+<a href="/add_contact" class="btn btn-info add-contact-button" role="button">+</a>
