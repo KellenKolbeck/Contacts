@@ -73,4 +73,12 @@ describe(Addresses) do
     end
   end
 
+  describe('#gmaps') do
+    it("formats address for google maps identification") do
+      test_address = Addresses.new({:street => "8324 SE rhine St.", :city => "portland", :state => "OR", :zip => "97266", :type => "Home"})
+      test_address.save
+      expect(test_address.gmaps()).to(eq("8324+Se+Rhine+St+97266"))
+    end
+  end
+
 end

@@ -29,7 +29,9 @@ class Addresses
     "#{@city}, #{@state} #{@zip}"
   end
 
-
-
+  def gmaps
+    gmaps_street = @street.gsub(" ", "+")
+    "#{gmaps_street}+#{@zip}"
+  end
 
 end
