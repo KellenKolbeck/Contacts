@@ -22,5 +22,14 @@ class Phones
     @@all_numbers.push(self)
   end
 
+  def edit_area_code
+  end
+
+  def edit_number
+  end
+
+  def edit_type
+  end
+
 
 end
