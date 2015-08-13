@@ -13,6 +13,7 @@ class Contacts
     @job = attributes.fetch(:job).split.each{|word| word.capitalize!}.join(" ")
     @company = attributes.fetch(:company).split.each{|word| word.capitalize!}.join(" ")
     @id = @@all_contacts.length() + 1
+
   end
 
   def save
@@ -36,5 +37,10 @@ class Contacts
     end
     found_contact
   end
+
+  define_singleton_method(:sorted) do
+    @@all_contacts.sort!{|a,b| a.last_name <=> b.last_name}
+  end
+
 
 end
