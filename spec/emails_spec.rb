@@ -19,4 +19,26 @@ describe(Emails) do
     end
    end
 
+  describe('.all') do
+    it("returns an empty array") do
+      expect(Emails.all()).to(eq([]))
+    end
+  end
+
+  describe('#save') do
+    it("saves contact email") do
+      test_email = Emails.new({:email => "AJHAupt7@gmail.com"})
+      test_email.save()
+      expect(Emails.all()).to(eq([test_email]))
+    end
+  end
+
+  describe('.clear') do
+    it("clears contact email from array") do
+      test_email = Emails.new({:email => "AJHAupt7@gmail.com"})
+      test_email.save()
+      Emails.all().clear()
+      expect(Emails.all()).to(eq([]))
+    end
+  end
 end
