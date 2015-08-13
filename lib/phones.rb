@@ -31,5 +31,7 @@ class Phones
   def edit_type
   end
 
-
+  define_singleton_method(:clear) do
+    @@all_numbers = []
+  end
 end

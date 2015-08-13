@@ -2,6 +2,7 @@ require('rspec')
 require('emails')
 
 describe(Emails) do
+  
 
   describe('#email') do
     it("returns an email address") do
